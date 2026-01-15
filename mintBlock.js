@@ -2,7 +2,8 @@
 // Usage: node mintBlock.js
 // Requires: npm install ethers dotenv
 
-require('dotenv').config();
+require("dotenv").config();
+
 const { ethers } = require("ethers");
 
 // Load env vars
@@ -17,7 +18,7 @@ async function mintBlock() {
     const tx = {
       to: await wallet.getAddress(),
       value: ethers.parseEther("0.00001"),
-      gasLimit: 21000
+      gasLimit: 21000,
     };
     const sentTx = await wallet.sendTransaction(tx);
     console.log(`Sent tx: ${sentTx.hash}`);
@@ -27,5 +28,5 @@ async function mintBlock() {
   }
 }
 
-console.log("Minting (sending tx) every 3 seconds...");
-setInterval(mintBlock, 3000);
+console.log("Minting (sending tx) every 10 seconds...");
+setInterval(mintBlock, 10000);
